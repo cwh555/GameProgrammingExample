@@ -3,28 +3,18 @@ from GameObject import GameObject
 from Brick import Brick
 
 class Ball(GameObject):
-    def __init__(self, canvas, x, y, radius = 10, speed = 10, life = 3):
+    def __init__(self, canvas, x, y, radius = 10, speed = 10):
         '''
-            初始化_radius, _direction[2], _speed, _life, _item
+            初始化_radius, _direction[2], _speed, _item
             call constructor of GameObject
         '''
         self._radius = radius
         self._speed = speed
-        self._life = life
         self._direction = [1, -1]
         item = canvas.create_oval(x - radius, y - radius, 
                                          x + radius, y + radius,
                                          fill = 'white', tags = 'ball')
         super().__init__(canvas, item)
-
-    def get_life(self):
-        ''' return life '''
-        return self._life
-
-    def modify_life(self, delta):
-        ''' _life += delta '''
-        self._life += delta
-        print(self._life)
 
     def set_speed(self, speed):
         self._speed = speed

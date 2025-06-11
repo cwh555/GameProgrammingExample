@@ -15,6 +15,7 @@ class Game(tk.Frame):
         super().__init__(master)
         self._width = 610
         self._height = 400
+        self._life = 3
         self._canvas = tk.Canvas(self, bg = '#aaaaff',
                                   width = self._width, height = self._height)
         self._canvas.pack()
@@ -64,8 +65,8 @@ class Game(tk.Frame):
             self.draw_text(300, 200, 'You win!')
         elif self._ball.get_position()[3] >= self._height:
             self._ball.set_speed(None)
-            self._ball.modify_life(-1)
-            if self._ball.get_life() <= 0:
+            self._life -= 1
+            if self._life <= 0:
                 self._draw_text("Game over")
             else:
                 self.after(1000, self._setup_game)
@@ -96,7 +97,7 @@ class Game(tk.Frame):
   
     def _update_lives_text(self):
         ''' 從ball獲取生命值，並更新輸出在畫面上的文字 '''
-        text = "Lives: %s" % self._ball.get_life()
+        text = "Lives: %s" % self._life
         if self._hud is None:
             self._hud = self._draw_text(50, 20, text, 15)
         else:
