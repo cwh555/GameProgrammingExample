@@ -17,9 +17,9 @@ class Paddle(GameObject):
                                        fill = 'blue', tags = 'paddle')
         super().__init__(canvas, item)
         self._canvas.bind('<Left>',
-                          lambda _: self.paddle.move(-10))
+                          lambda _: self.move(-10))
         self._canvas.bind('<Right>',
-                          lambda _: self.paddle.move(10))
+                          lambda _: self.move(10))
 
     def set_ball(self, ball):
         ''' set the ball  '''
@@ -27,9 +27,9 @@ class Paddle(GameObject):
 
     def move(self, offset):
         ''' move the paddle horizontally'''
-        coords = self.getposition()
+        coords = self.get_position()
         # get the width of canvas
-        width = self.canvas.winfo_width()
+        width = self._canvas.winfo_width()
         if coords[0] + offset >= 0 and coords[2] + offset <= width:
             super().move(offset, 0)
             if self._ball is not None:

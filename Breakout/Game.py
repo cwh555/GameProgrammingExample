@@ -106,5 +106,5 @@ class Game(tk.Frame):
         ''' 判斷ball是否有與其他物體(paddle, bricks)碰撞（不包含邊界) 並處理碰撞物'''
         ball_coords = self._ball.get_position()
         items = self._canvas.find_overlapping(*ball_coords)
-        objects = [self.items[x] for x in items if x in self.items]
-        self._ball.collide(objects)
+        objects = [self._items[x] for x in items if x in self._items]
+        self._ball._collide(objects)

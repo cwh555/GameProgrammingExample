@@ -24,6 +24,7 @@ class Ball(GameObject):
     def modify_life(self, delta):
         ''' _life += delta '''
         self._life += delta
+        print(self._life)
 
     def set_speed(self, speed):
         self._speed = speed
@@ -53,7 +54,6 @@ class Ball(GameObject):
 
     def update_ball(self):
         ''' call collide first, 移動ball  '''
-        self._check_collide()
         # bounce with boundary
         coords = self.get_position()
         width = self._canvas.winfo_width()
