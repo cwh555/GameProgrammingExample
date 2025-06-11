@@ -13,7 +13,7 @@ class Ball(GameObject):
         self.__direction = [1, -1]
         item = canvas.create_oval(x - radius, y - radius, 
                                          x + radius, y + radius,
-                                         fill = 'white')
+                                         fill = 'white', tags = 'ball')
         super().__init(self, canvas, item)
 
     def get_life(self):

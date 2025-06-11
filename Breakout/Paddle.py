@@ -14,7 +14,7 @@ class Paddle(GameObject):
         self.__ball = None
         item = canvas.create_rectangle(x - width / 2, y - height / 2,
                                        x + width / 2, y + height / 2,
-                                       fill = 'blue')
+                                       fill = 'blue', tags = 'paddle')
         super().__init__(canvas, item)
 
     def set_ball(self, ball):
