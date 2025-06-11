@@ -4,14 +4,14 @@ import GameObject
 class Paddle(GameObject):
     def __init__(self, canvas, x, y, width = 80, height = 10):
         '''
-            the shape is rectangle, init __width, __height
-            __ball: Ball
-            init __item
+            the shape is rectangle, init _width, _height
+            _ball: Ball
+            init _item
             call constructor of GameObject
         '''
-        self.__width = width
-        self.__height = height
-        self.__ball = None
+        self._width = width
+        self._height = height
+        self._ball = None
         item = canvas.create_rectangle(x - width / 2, y - height / 2,
                                        x + width / 2, y + height / 2,
                                        fill = 'blue', tags = 'paddle')
@@ -19,7 +19,7 @@ class Paddle(GameObject):
 
     def set_ball(self, ball):
         ''' set the ball  '''
-        self.__ball = ball
+        self._ball = ball
 
     def move(self, offset):
         ''' move the paddle horizontally'''
@@ -28,6 +28,9 @@ class Paddle(GameObject):
         width = self.canvas.winfo_width()
         if coords[0] + offset >= 0 and coords[2] + offset <= width:
             super().move(offset, 0)
-            if self.__ball is not None:
+            if self._ball is not None:
                 # ball should move with the paddle since the game has not started yet
-                self.__ball.move(offset, 0)
+                self._ball.move(offset, 0)
+
+    def get_item(self):
+        return self._item
