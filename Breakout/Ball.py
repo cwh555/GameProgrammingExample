@@ -1,6 +1,6 @@
 import tkinter as tk
-import GameObject
-import Brick
+from GameObject import GameObject
+from Brick import Brick
 
 class Ball(GameObject):
     def __init__(self, canvas, x, y, radius = 10, speed = 10, life = 3):
@@ -15,7 +15,7 @@ class Ball(GameObject):
         item = canvas.create_oval(x - radius, y - radius, 
                                          x + radius, y + radius,
                                          fill = 'white', tags = 'ball')
-        super().__init__(self, canvas, item)
+        super().__init__(canvas, item)
 
     def get_life(self):
         ''' return life '''

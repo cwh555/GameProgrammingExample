@@ -1,5 +1,5 @@
 import tkinter as tk
-import GameObject
+from GameObject import GameObject
 
 class Brick(GameObject):
     # colors for bricks with difference hits

@@ -1,7 +1,7 @@
 import tkinter as tk
-import Ball
-import Paddle
-import Brick
+from Ball import Ball
+from Paddle import Paddle
+from Brick import Brick
 
 class Game(tk.Frame):
     def __init__(self, master: tk.Tk):
@@ -30,7 +30,7 @@ class Game(tk.Frame):
             self._add_brick(x + 37.5, 70, 1)
             self._add_brick(x + 37.5, 90, 1)
         self._hud = None   # record life text
-        self.setup_game()
+        self._setup_game()
         self._canvas.focus_set()
 
     def _setup_game(self):
@@ -41,7 +41,7 @@ class Game(tk.Frame):
         '''
         self._add_ball()
         self._update_lives_text()
-        self._text = self.draw_text(300, 200, "Press Space to start")
+        self._text = self._draw_text(300, 200, "Press Space to start")
         self._canvas.bind('<space>',
                           lambda _: self.start_game())
   
@@ -87,7 +87,7 @@ class Game(tk.Frame):
     def _add_brick(self, x, y, hits):
         ''' 新增一個磚塊，存放到dict中 '''
         brick = Brick(self._canvas, x, y, hits)
-        self.items[brick.get_item()] = brick
+        self._items[brick.get_item()] = brick
   
     def _draw_text(self, x: int, y: int, text: str, size = '40'):
         ''' 協助輸出文字在指定位置 '''
@@ -97,8 +97,8 @@ class Game(tk.Frame):
     def _update_lives_text(self):
         ''' 從ball獲取生命值，並更新輸出在畫面上的文字 '''
         text = "Lives: %s" % self._ball.get_life()
-        if self.hud is None:
-            self.hud = self._draw_text(50, 20, text, 15)
+        if self._hud is None:
+            self._hud = self._draw_text(50, 20, text, 15)
         else:
             self._canvas.itemconfig(self._hud, text = text)
   

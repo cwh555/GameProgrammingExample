@@ -1,5 +1,5 @@
 import tkinter as tk
-import GameObject
+from GameObject import GameObject
 
 class Paddle(GameObject):
     def __init__(self, canvas, x, y, width = 80, height = 10):
