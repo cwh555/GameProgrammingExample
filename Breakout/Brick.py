@@ -24,3 +24,6 @@ class Brick(GameObject):
         else:
             # change color
             self._canvas.itemconfig(self._item, fill = Brick._COLORS[self._hits])
+
+    def get_item(self):
+        return self._item
