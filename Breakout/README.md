@@ -8,6 +8,17 @@ Breakout is a classic game developed in Python. The player controls a paddle to 
 - Prevent the ball from falling off the bottom of the screen.
 - Break all the bricks to win!
 
+## Pictures
+<p align="center">
+  <img src="https://i.postimg.cc/DZ8cSnJZ/2025-06-11-7-11-35.png" alt="Start Screen" width="400">
+</p>
+<p align="center"><b>Figure 1: Start</b></p>
+
+<p align="center">
+  <img src="https://i.postimg.cc/7hXPj893/2025-06-11-7-15-52.png" alt="Start Screen" width="400">
+</p>
+<p align="center"><b>Figure 2: Gameplay Screenshot</b></p>
+
 ## How to run
 - Requirements: Python 3 installed.
 - Download this folder to your device.
