@@ -66,8 +66,8 @@ class Game(tk.Frame):
         elif self._ball.get_position()[3] >= self._height:
             self._ball.set_speed(None)
             self._life -= 1
-            if self._life <= 0:
-                self._draw_text("Game over")
+            if self._life < 0:
+                self._draw_text(300, 200, "Game over")
             else:
                 self.after(1000, self._setup_game)
         else:
