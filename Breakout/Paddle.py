@@ -16,6 +16,10 @@ class Paddle(GameObject):
                                        x + width / 2, y + height / 2,
                                        fill = 'blue', tags = 'paddle')
         super().__init__(canvas, item)
+        self._canvas.bind('<Left>',
+                          lambda _: self.paddle.move(-10))
+        self._canvas.bind('<Right>',
+                          lambda _: self.paddle.move(10))
 
     def set_ball(self, ball):
         ''' set the ball  '''
