@@ -25,6 +25,9 @@ class Ball(GameObject):
         ''' _life += delta '''
         self._life += delta
 
+    def set_speed(self, speed):
+        self._speed = speed
+
     def _collide(self, game_objects):
         ''' 
             確定產生碰撞，改變球的方向
